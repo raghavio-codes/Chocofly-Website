@@ -26,15 +26,37 @@
       scroll-behavior: smooth;
     }
 
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      z-index: 100;
+    }
+    nav a {
+      color: var(--brown);
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 2rem;
+      transition: 0.2s;
+    }
+    nav a:hover {
+      color: var(--gold);
+    }
+
     header {
       background: var(--gradient);
       color: white;
       padding: 6rem 2rem 4rem;
       text-align: center;
       position: relative;
-      overflow: hidden;
       border-bottom-left-radius: 2rem;
       border-bottom-right-radius: 2rem;
+      overflow: hidden;
     }
     header::after {
       content: '';
@@ -58,27 +80,23 @@
       position: relative;
       z-index: 1;
     }
-
-    nav {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: flex-end;
-      z-index: 100;
-    }
-    nav a {
+    .hero-cta {
+      margin-top: 1.5rem;
+      display: inline-block;
+      background: var(--gold);
       color: var(--brown);
-      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 999px;
       font-weight: 600;
-      margin-left: 2rem;
-      transition: 0.2s;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: 0.3s;
+      position: relative;
+      z-index: 1;
     }
-    nav a:hover {
-      color: var(--gold);
+    .hero-cta:hover {
+      background: #b8962f;
+      transform: scale(1.05);
     }
 
     .section {
@@ -94,6 +112,7 @@
       gap: 2rem;
       margin-top: 2rem;
     }
+
     .card {
       background: white;
       border-radius: 1rem;
@@ -136,14 +155,6 @@
       box-shadow: 0 0 20px rgba(212,175,55,0.4);
     }
 
-    footer {
-      background: var(--brown);
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      margin-top: 4rem;
-    }
-
     form {
       max-width: 600px;
       margin: 2rem auto;
@@ -155,6 +166,7 @@
       border-radius: 1rem;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     }
+
     input, textarea {
       padding: 0.85rem 1rem;
       border-radius: 8px;
@@ -162,10 +174,12 @@
       font-size: 1rem;
       transition: border 0.2s;
     }
+
     input:focus, textarea:focus {
       outline: none;
       border-color: var(--gold);
     }
+
     button {
       padding: 0.9rem;
       background: var(--gradient);
@@ -176,10 +190,36 @@
       cursor: pointer;
       transition: 0.3s;
     }
+
     button:hover {
       transform: scale(1.03);
       background: linear-gradient(135deg, #3b1e0f, #c4a231);
       box-shadow: 0 0 12px rgba(212,175,55,0.3);
+    }
+
+    footer {
+      background: var(--brown);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 0.75rem;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .products {
+        grid-template-columns: 1fr;
+      }
     }
 
     @keyframes fadeInUp {
@@ -202,6 +242,7 @@
   <header>
     <h1>Chocofly Foods</h1>
     <p>Premium Chocolates & Amla Candies for Indian Stores</p>
+    <a href="#products" class="hero-cta">Explore Products</a>
   </header>
 
   <section class="section" id="products">
@@ -236,7 +277,7 @@
   <section class="section" id="contact">
     <h2 style="text-align:center; font-size: 2rem;">Contact Us</h2>
     <p style="text-align:center; max-width:600px; margin: 1rem auto;">Interested in our products? Message us for stocking or collaborations. We're excited to hear from you!</p>
-    <form>
+    <form action="mailto:info.chocofly@gmail.com" method="POST" enctype="text/plain">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="text" name="shop" placeholder="Shop/Company Name" required />
       <input type="email" name="email" placeholder="Email Address" required />
@@ -247,16 +288,13 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Chocofly Foods Pvt. Ltd. | Contact Us
-    <div style="margin-top:1rem;">
-      <div style="text-align:center; margin-top:1rem;">
-  <a href="https://www.instagram.com/chocoflyfoods/" target="_blank" rel="noopener noreferrer" style="color:white; margin:0 0.5rem; text-decoration:none;">Instagram</a>
-  <a href="https://wa.me/+919926999801"  target="_blank" rel="noopener noreferrer" style="color:white; margin:0 0.5rem; text-decoration:none;">WhatsApp</a>
-</div>
-    </p>
+    <p>&copy; 2025 Chocofly Foods Pvt. Ltd.</p>
+    <p>First Floor, 154 GNT Market, Dhar Road, Indore (M.P.) INDIA</p>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.instagram.com/chocoflyfoods/" target="_blank">Instagram</a>
+      <a href="https://wa.me/+919926999801" target="_blank">WhatsApp</a>
+    </div>
   </footer>
 
 </body>
 </html>
-
-
